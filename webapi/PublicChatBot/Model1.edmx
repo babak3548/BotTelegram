@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BotsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Bot">
+          <Key>
+            <PropertyRef Name="userName" />
+          </Key>
+          <Property Name="userName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="token" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="sendCountDay" Type="tinyint" Nullable="false" />
+          <Property Name="lastUpdateId" Type="int" Nullable="false" />
+          <Property Name="shanseErsaleMohtavayeTekrari" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bridge_BotUser">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="fk_bot" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fk_user" Type="int" Nullable="false" />
+          <Property Name="role" Type="tinyint" Nullable="false" />
+          <Property Name="rate" Type="int" Nullable="false" />
+          <Property Name="last_contentId" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="content">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fk_bot" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="fk_user" Type="int" Nullable="false" />
+          <Property Name="jsonMessage" Type="nvarchar(max)" />
+          <Property Name="messageId" Type="int" Nullable="false" />
+          <Property Name="ratePlus" Type="int" Nullable="false" />
+          <Property Name="isBroadcast" Type="tinyint" Nullable="false" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="rateMinus" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="lastName" Type="nvarchar(max)" />
+          <Property Name="type" Type="tinyint" />
+          <Property Name="date" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_Bridge_BotUser_Bot">
+          <End Role="Bot" Type="Self.Bot" Multiplicity="1" />
+          <End Role="Bridge_BotUser" Type="Self.Bridge_BotUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bot">
+              <PropertyRef Name="userName" />
+            </Principal>
+            <Dependent Role="Bridge_BotUser">
+              <PropertyRef Name="fk_bot" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bridge_BotUser_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="Bridge_BotUser" Type="Self.Bridge_BotUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Bridge_BotUser">
+              <PropertyRef Name="fk_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_content_Bot">
+          <End Role="Bot" Type="Self.Bot" Multiplicity="1" />
+          <End Role="content" Type="Self.content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bot">
+              <PropertyRef Name="userName" />
+            </Principal>
+            <Dependent Role="content">
+              <PropertyRef Name="fk_bot" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_content_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="content" Type="Self.content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="content">
+              <PropertyRef Name="fk_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BotsModelStoreContainer">
+          <EntitySet Name="Bot" EntityType="Self.Bot" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bridge_BotUser" EntityType="Self.Bridge_BotUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="content" EntityType="Self.content" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Bridge_BotUser_Bot" Association="Self.FK_Bridge_BotUser_Bot">
+            <End Role="Bot" EntitySet="Bot" />
+            <End Role="Bridge_BotUser" EntitySet="Bridge_BotUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bridge_BotUser_User" Association="Self.FK_Bridge_BotUser_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="Bridge_BotUser" EntitySet="Bridge_BotUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_content_Bot" Association="Self.FK_content_Bot">
+            <End Role="Bot" EntitySet="Bot" />
+            <End Role="content" EntitySet="content" />
+          </AssociationSet>
+          <AssociationSet Name="FK_content_User" Association="Self.FK_content_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="content" EntitySet="content" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BotsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BotsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Bots" EntityType="BotsModel.Bot" />
+          <EntitySet Name="Bridge_BotUser" EntityType="BotsModel.Bridge_BotUser" />
+          <EntitySet Name="contents" EntityType="BotsModel.content" />
+          <EntitySet Name="Users" EntityType="BotsModel.User" />
+          <AssociationSet Name="FK_Bridge_BotUser_Bot" Association="BotsModel.FK_Bridge_BotUser_Bot">
+            <End Role="Bot" EntitySet="Bots" />
+            <End Role="Bridge_BotUser" EntitySet="Bridge_BotUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_content_Bot" Association="BotsModel.FK_content_Bot">
+            <End Role="Bot" EntitySet="Bots" />
+            <End Role="content" EntitySet="contents" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Bridge_BotUser_User" Association="BotsModel.FK_Bridge_BotUser_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="Bridge_BotUser" EntitySet="Bridge_BotUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_content_User" Association="BotsModel.FK_content_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="content" EntitySet="contents" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Bot">
+          <Key>
+            <PropertyRef Name="userName" />
+          </Key>
+          <Property Name="userName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="token" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="sendCountDay" Type="Byte" Nullable="false" />
+          <Property Name="lastUpdateId" Type="Int32" Nullable="false" />
+          <Property Name="shanseErsaleMohtavayeTekrari" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bridge_BotUser" Relationship="BotsModel.FK_Bridge_BotUser_Bot" FromRole="Bot" ToRole="Bridge_BotUser" />
+          <NavigationProperty Name="contents" Relationship="BotsModel.FK_content_Bot" FromRole="Bot" ToRole="content" />
+        </EntityType>
+        <EntityType Name="Bridge_BotUser">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="fk_bot" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fk_user" Type="Int32" Nullable="false" />
+          <Property Name="role" Type="Byte" Nullable="false" />
+          <Property Name="rate" Type="Int32" Nullable="false" />
+          <Property Name="last_contentId" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Bot" Relationship="BotsModel.FK_Bridge_BotUser_Bot" FromRole="Bridge_BotUser" ToRole="Bot" />
+          <NavigationProperty Name="User" Relationship="BotsModel.FK_Bridge_BotUser_User" FromRole="Bridge_BotUser" ToRole="User" />
+        </EntityType>
+        <EntityType Name="content">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fk_bot" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="fk_user" Type="Int32" Nullable="false" />
+          <Property Name="jsonMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="messageId" Type="Int32" Nullable="false" />
+          <Property Name="ratePlus" Type="Int32" Nullable="false" />
+          <Property Name="isBroadcast" Type="Byte" Nullable="false" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="rateMinus" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Bot" Relationship="BotsModel.FK_content_Bot" FromRole="content" ToRole="Bot" />
+          <NavigationProperty Name="User" Relationship="BotsModel.FK_content_User" FromRole="content" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="lastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="type" Type="Byte" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Bridge_BotUser" Relationship="BotsModel.FK_Bridge_BotUser_User" FromRole="User" ToRole="Bridge_BotUser" />
+          <NavigationProperty Name="contents" Relationship="BotsModel.FK_content_User" FromRole="User" ToRole="content" />
+        </EntityType>
+        <Association Name="FK_Bridge_BotUser_Bot">
+          <End Type="BotsModel.Bot" Role="Bot" Multiplicity="1" />
+          <End Type="BotsModel.Bridge_BotUser" Role="Bridge_BotUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bot">
+              <PropertyRef Name="userName" />
+            </Principal>
+            <Dependent Role="Bridge_BotUser">
+              <PropertyRef Name="fk_bot" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_content_Bot">
+          <End Type="BotsModel.Bot" Role="Bot" Multiplicity="1" />
+          <End Type="BotsModel.content" Role="content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Bot">
+              <PropertyRef Name="userName" />
+            </Principal>
+            <Dependent Role="content">
+              <PropertyRef Name="fk_bot" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Bridge_BotUser_User">
+          <End Type="BotsModel.User" Role="User" Multiplicity="1" />
+          <End Type="BotsModel.Bridge_BotUser" Role="Bridge_BotUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Bridge_BotUser">
+              <PropertyRef Name="fk_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_content_User">
+          <End Type="BotsModel.User" Role="User" Multiplicity="1" />
+          <End Type="BotsModel.content" Role="content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="content">
+              <PropertyRef Name="fk_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BotsModelStoreContainer" CdmEntityContainer="BotsEntities">
+          <EntitySetMapping Name="Bots">
+            <EntityTypeMapping TypeName="BotsModel.Bot">
+              <MappingFragment StoreEntitySet="Bot">
+                <ScalarProperty Name="shanseErsaleMohtavayeTekrari" ColumnName="shanseErsaleMohtavayeTekrari" />
+                <ScalarProperty Name="lastUpdateId" ColumnName="lastUpdateId" />
+                <ScalarProperty Name="sendCountDay" ColumnName="sendCountDay" />
+                <ScalarProperty Name="token" ColumnName="token" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bridge_BotUser">
+            <EntityTypeMapping TypeName="BotsModel.Bridge_BotUser">
+              <MappingFragment StoreEntitySet="Bridge_BotUser">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="last_contentId" ColumnName="last_contentId" />
+                <ScalarProperty Name="rate" ColumnName="rate" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="fk_user" ColumnName="fk_user" />
+                <ScalarProperty Name="fk_bot" ColumnName="fk_bot" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contents">
+            <EntityTypeMapping TypeName="BotsModel.content">
+              <MappingFragment StoreEntitySet="content">
+                <ScalarProperty Name="rateMinus" ColumnName="rateMinus" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="isBroadcast" ColumnName="isBroadcast" />
+                <ScalarProperty Name="ratePlus" ColumnName="ratePlus" />
+                <ScalarProperty Name="messageId" ColumnName="messageId" />
+                <ScalarProperty Name="jsonMessage" ColumnName="jsonMessage" />
+                <ScalarProperty Name="fk_user" ColumnName="fk_user" />
+                <ScalarProperty Name="fk_bot" ColumnName="fk_bot" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="BotsModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

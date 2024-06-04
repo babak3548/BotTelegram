@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0f6103c5404340968eb3429f2cf2f16b" Name="Diagram1">
+        <EntityTypeShape EntityType="BotsModel.Bot" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BotsModel.Bridge_BotUser" Width="1.5" PointX="3" PointY="4.75" />
+        <EntityTypeShape EntityType="BotsModel.content" Width="1.5" PointX="6" PointY="4.5" />
+        <EntityTypeShape EntityType="BotsModel.User" Width="1.5" PointX="0.75" PointY="4.875" />
+        <AssociationConnector Association="BotsModel.FK_Bridge_BotUser_Bot" />
+        <AssociationConnector Association="BotsModel.FK_content_Bot" />
+        <AssociationConnector Association="BotsModel.FK_Bridge_BotUser_User" />
+        <AssociationConnector Association="BotsModel.FK_content_User" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

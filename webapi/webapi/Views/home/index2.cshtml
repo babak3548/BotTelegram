@@ -1,0 +1,162 @@
+﻿<html>
+<head>
+</head>
+<body id="fcbody" class="uploaderbody light_style fcbody">
+
+
+    <div id="fcwrapper" class="">
+
+        <!-- for drop shadows: -->
+        <div class="shad01"></div>
+        <div class="shad02"></div>
+        <div class="shad03"></div>
+        <div class="shad04"></div>
+        <div class="shad05"></div>
+        <div class="shad06"></div>
+        <div class="shad07"></div>
+        <div class="shad08"></div>
+
+        <div id="uploaderpage">
+            <!-- this is #uploaderpage, #filelistpage, #defaultpage, etc. -->
+
+            <div style="margin: 5px auto 15px auto;"><img src="/uploaddemo/fc_icons_etc/fclogo25.png" width="358" height="54" alt="FileChucker" /></div>
+
+            <div id="fc-container">
+                <!-- don't change this ID. -->
+
+                <div id="fc_content">
+                    <!-- don't change this ID. -->
+
+
+
+                    <div id="fcintro">
+                        <div style="margin: 17px 10px; text-align: left;">
+                            Welcome to the FileChucker live demo.&nbsp; Try it out, then
+                            <a href="/filechucker/">download it</a>
+                            and put it on your own website!&nbsp; All uploads to this demo are
+                            <a href="/uploaddemo/?list">publicly downloadable</a> and all
+                            will be automatically deleted after a few hours.
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                    <form name="theuploadform" id="theuploadform" method="post" enctype="multipart/form-data" 
+                          action="/api/product/PostFormData/"  target="fc_upload_iframe" accept-charset="UTF-8">
+
+                        <input type="hidden" name="numitems" id="numitems" value="1" />
+                        <input type="hidden" name="numfileelements" id="numfileelements" value="1" />
+                        <div id="filefields">
+
+
+                            <div id="firstfile" class="fcfieldwrap clearfixtb onesubgroup odd first last">
+                                <div class="upform_pair">
+                                    <label class="upform_label" for="uploadname1">File <span class="filei">1</span> of <span class="fileitotal">1</span>:</label>
+                                    <input type="file" multiple="multiple" size="15" class="upform_field file required " name="uploadname1" id="uploadname1" onchange="add_file_element_if_necessary();" />
+                                </div>
+
+
+
+
+
+
+
+                                <div class="upform_pair">
+                                    <label for="newsubdir1" class="upform_label newsubdir_label">New subfolder? Name:</label>
+                                    <input type="text" class="upform_field newsubdir_field default text" name="newsubdir1" id="newsubdir1" maxlength="25" title="(created in the selected directory)" />
+                                </div>
+
+
+
+
+
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div id="subdir_dropdown_visible"></div>
+                        <div id="new_subdir_field_visible"></div>
+
+
+                        <div id="uploadbuttonwrapper"><input type="button" value="Begin Upload" id="uploadbutton" class="button"  /></div>
+
+                    </form>
+
+                    <div id="progBarPlaceholder" style="position: absolute; left: -10000px; overflow: hidden; height: 0;">Upload in progress; please wait.&nbsp; Do not close this window.</div>
+
+                    <div id="progBarError" style="position: absolute; left: -10000px; overflow: hidden; height: 0;"></div>
+
+                    <div id="progBarContainer" style="position: absolute; left: -10000px; overflow: hidden; height: 0;">
+
+
+
+                        <div id="theMeter">
+                            <div id="progBar">
+                                <div id="progBarDone"></div>
+                            </div>
+                            <div id="progBarText">
+                                <div id="progRate">? KB/s</div>
+                                <div id="progStatus">Connecting; please wait.</div>
+                                <div id="progPercent">? %</div>
+                            </div>
+                        </div>
+
+                        <div id="uploadCompleteMsg" style="position: absolute; left: -10000px; overflow: hidden; height: 0;"></div>
+
+
+                        <table>
+                            <tr id="upload-row-1"><td id="tca1"></td><td id="tca2" class="headercell">Files</td><td id="tca3" class="headercell">Size</td><td id="tca4" class="headercell">Time</td></tr>
+                            <tr id="upload-row-2"><td id="tcb1" class="headercell">Total</td>	<td id="totalf">1</td>	<td id="totals">?</td>		<td id="totalt">??:??:??</td></tr>
+                            <tr id="upload-row-3"><td id="tcc1" class="headercell">Completed</td>	<td id="donef">0</td>			<td id="dones">0</td>		<td id="donet">00:00:00</td></tr>
+                            <tr id="upload-row-4"><td id="tcd1" class="headercell">Remaining</td>	<td id="leftf">1</td>	<td id="lefts">?</td>		<td id="leftt">??:??:??</td></tr>
+                        </table>
+
+
+
+
+                    </div>
+
+
+                    <div id="uploadDoneContainer"></div>
+
+                    <iframe src="" name="fc_upload_iframe" id="fc_upload_iframe" width="1" height="1" onload="show_upload_iframe_contents();" style="position: absolute; left: -10000px; overflow: hidden; height: 0;"><p>Your browser does not support iframes.</p></iframe>
+                    <form id="enc_comm_layer" method="get" action="/" onsubmit="return false;">
+                        <input type="hidden" name="onload_happened" id="onload_happened" value="0" />
+                    </form>
+                    <div id="fcclearpage"></div>
+                    <div id="showprogtable"></div>
+                    <div id="ht_is_invisible"></div>
+                    <div id="only_one_subdir_dropdown"></div>
+                    <div id="only_one_new_subdir"></div>
+                    <div id="use_iframe_for_upload"></div>
+
+
+
+                </div>
+
+                <div id="fcfooter">
+                    <div id="fcfooter-inner">
+                        <div id="fcfooter-text">
+                            <a href="/">Home</a> &#8211; <a href="/uploaddemo/?action=listfiles">View Uploaded Files</a> &#8211; <a href="http://encodable.com/filechucker/" target="_blank">File Upload by Encodable</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div> <!-- end #fc-container. -->
+
+            <div id="pb"><a href="http://encodable.com/filechucker/" target="_blank">File Upload by Encodable</a></div>
+
+        </div> <!-- end #uploaderpage, #filelistpage, #defaultpage, etc. -->
+
+    </div><!-- end id="fcwrapper" -->
+</body>
+</html>
+

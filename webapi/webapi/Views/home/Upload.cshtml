@@ -1,0 +1,854 @@
+﻿<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+
+
+    <title>
+        درج آگهي
+    </title>
+
+    <link href="/ad/Content/css?v=911cM9dqahm-vBTWdEbYTyF09N5fUtwT6-mAcA4dXJU1" rel="stylesheet">
+
+    <link href="/ad/Content/css-advertisement?v=vF4HXZiWKvNVXBoCoPvUG4NZKwOqgHMIViDZBke0ODE1" rel="stylesheet">
+
+
+
+    <link href="/ad/Styles/7A-0C-30-C5-A7-92-EB-B9-FF-51-3D-E2-E4-D4-02-EE?v=elUQfeuCRiSQ8xcRNquqlIgWQcbN_RkY4FP1DB88YjU1" rel="stylesheet">
+
+
+    <style>
+        .ui-autocomplete {
+            position: absolute;
+            cursor: default;
+            z-index: 300000 !important;
+        }
+
+        .FNdropDown {
+            min-width: 200px;
+        }
+
+            .FNdropDown.larg-img .FNdropDown-container .my-color-item img {
+                width: 40px;
+                height: 44px;
+            }
+
+        .my-color-item {
+            float: right;
+        }
+
+            .my-color-item .color {
+                height: 20px;
+                width: 20px;
+                float: right;
+                border-radius: 2px;
+                margin-left: 5px;
+            }
+
+            .my-color-item span {
+                float: right;
+            }
+
+            .my-color-item img {
+                width: 20px;
+                height: 20px;
+                float: right;
+                margin-left: 10px;
+            }
+
+            .my-color-item.product img {
+                width: auto;
+                height: auto;
+            }
+
+        .dropzone {
+            float: right !important;
+        }
+    </style>
+
+
+
+    <style type="text/css"></style>
+    <style type="text/css" id="notify-bootstrap">
+        .notifyjs-bootstrap-base {
+            font-weight: bold;
+            padding: 8px 15px 8px 14px;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+            background-color: #fcf8e3;
+            border: 1px solid #fbeed5;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            white-space: nowrap;
+            padding-left: 25px;
+            background-repeat: no-repeat;
+            background-position: 3px 7px;
+        }
+
+        .notifyjs-bootstrap-error {
+            color: #B94A48;
+            background-color: #F2DEDE;
+            border-color: #EED3D7;
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAtRJREFUeNqkVc1u00AQHq+dOD+0poIQfkIjalW0SEGqRMuRnHos3DjwAH0ArlyQeANOOSMeAA5VjyBxKBQhgSpVUKKQNGloFdw4cWw2jtfMOna6JOUArDTazXi/b3dm55socPqQhFka++aHBsI8GsopRJERNFlY88FCEk9Yiwf8RhgRyaHFQpPHCDmZG5oX2ui2yilkcTT1AcDsbYC1NMAyOi7zTX2Agx7A9luAl88BauiiQ/cJaZQfIpAlngDcvZZMrl8vFPK5+XktrWlx3/ehZ5r9+t6e+WVnp1pxnNIjgBe4/6dAysQc8dsmHwPcW9C0h3fW1hans1ltwJhy0GxK7XZbUlMp5Ww2eyan6+ft/f2FAqXGK4CvQk5HueFz7D6GOZtIrK+srupdx1GRBBqNBtzc2AiMr7nPplRdKhb1q6q6zjFhrklEFOUutoQ50xcX86ZlqaZpQrfbBdu2R6/G19zX6XSgh6RX5ubyHCM8nqSID6ICrGiZjGYYxojEsiw4PDwMSL5VKsC8Yf4VRYFzMzMaxwjlJSlCyAQ9l0CW44PBADzXhe7xMdi9HtTrdYjFYkDQL0cn4Xdq2/EAE+InCnvADTf2eah4Sx9vExQjkqXT6aAERICMewd/UAp/IeYANM2joxt+q5VI+ieq2i0Wg3l6DNzHwTERPgo1ko7XBXj3vdlsT2F+UuhIhYkp7u7CarkcrFOCtR3H5JiwbAIeImjT/YQKKBtGjRFCU5IUgFRe7fF4cCNVIPMYo3VKqxwjyNAXNepuopyqnld602qVsfRpEkkz+GFL1wPj6ySXBpJtWVa5xlhpcyhBNwpZHmtX8AGgfIExo0ZpzkWVTBGiXCSEaHh62/PoR0p/vHaczxXGnj4bSo+G78lELU80h1uogBwWLf5YlsPmgDEd4M236xjm+8nm4IuE/9u+/PH2JXZfbwz4zw1WbO+SQPpXfwG/BBgAhCNZiSb/pOQAAAAASUVORK5CYII=);
+        }
+
+        .notifyjs-bootstrap-success {
+            color: #468847;
+            background-color: #DFF0D8;
+            border-color: #D6E9C6;
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAutJREFUeNq0lctPE0Ecx38zu/RFS1EryqtgJFA08YCiMZIAQQ4eRG8eDGdPJiYeTIwHTfwPiAcvXIwXLwoXPaDxkWgQ6islKlJLSQWLUraPLTv7Gme32zoF9KSTfLO7v53vZ3d/M7/fIth+IO6INt2jjoA7bjHCJoAlzCRw59YwHYjBnfMPqAKWQYKjGkfCJqAF0xwZjipQtA3MxeSG87VhOOYegVrUCy7UZM9S6TLIdAamySTclZdYhFhRHloGYg7mgZv1Zzztvgud7V1tbQ2twYA34LJmF4p5dXF1KTufnE+SxeJtuCZNsLDCQU0+RyKTF27Unw101l8e6hns3u0PBalORVVVkcaEKBJDgV3+cGM4tKKmI+ohlIGnygKX00rSBfszz/n2uXv81wd6+rt1orsZCHRdr1Imk2F2Kob3hutSxW8thsd8AXNaln9D7CTfA6O+0UgkMuwVvEFFUbbAcrkcTA8+AtOk8E6KiQiDmMFSDqZItAzEVQviRkdDdaFgPp8HSZKAEAL5Qh7Sq2lIJBJwv2scUqkUnKoZgNhcDKhKg5aH+1IkcouCAdFGAQsuWZYhOjwFHQ96oagWgRoUov1T9kRBEODAwxM2QtEUl+Wp+Ln9VRo6BcMw4ErHRYjH4/B26AlQoQQTRdHWwcd9AH57+UAXddvDD37DmrBBV34WfqiXPl61g+vr6xA9zsGeM9gOdsNXkgpEtTwVvwOklXLKm6+/p5ezwk4B+j6droBs2CsGa/gNs6RIxazl4Tc25mpTgw/apPR1LYlNRFAzgsOxkyXYLIM1V8NMwyAkJSctD1eGVKiq5wWjSPdjmeTkiKvVW4f2YPHWl3GAVq6ymcyCTgovM3FzyRiDe2TaKcEKsLpJvNHjZgPNqEtyi6mZIm4SRFyLMUsONSSdkPeFtY1n0mczoY3BHTLhwPRy9/lzcziCw9ACI+yql0VLzcGAZbYSM5CCSZg1/9oc/nn7+i8N9p/8An4JMADxhH+xHfuiKwAAAABJRU5ErkJggg==);
+        }
+
+        .notifyjs-bootstrap-info {
+            color: #3A87AD;
+            background-color: #D9EDF7;
+            border-color: #BCE8F1;
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QYFAhkSsdes/QAAA8dJREFUOMvVlGtMW2UYx//POaWHXg6lLaW0ypAtw1UCgbniNOLcVOLmAjHZolOYlxmTGXVZdAnRfXQm+7SoU4mXaOaiZsEpC9FkiQs6Z6bdCnNYruM6KNBw6YWewzl9z+sHImEWv+vz7XmT95f/+3/+7wP814v+efDOV3/SoX3lHAA+6ODeUFfMfjOWMADgdk+eEKz0pF7aQdMAcOKLLjrcVMVX3xdWN29/GhYP7SvnP0cWfS8caSkfHZsPE9Fgnt02JNutQ0QYHB2dDz9/pKX8QjjuO9xUxd/66HdxTeCHZ3rojQObGQBcuNjfplkD3b19Y/6MrimSaKgSMmpGU5WevmE/swa6Oy73tQHA0Rdr2Mmv/6A1n9w9suQ7097Z9lM4FlTgTDrzZTu4StXVfpiI48rVcUDM5cmEksrFnHxfpTtU/3BFQzCQF/2bYVoNbH7zmItbSoMj40JSzmMyX5qDvriA7QdrIIpA+3cdsMpu0nXI8cV0MtKXCPZev+gCEM1S2NHPvWfP/hL+7FSr3+0p5RBEyhEN5JCKYr8XnASMT0xBNyzQGQeI8fjsGD39RMPk7se2bd5ZtTyoFYXftF6y37gx7NeUtJJOTFlAHDZLDuILU3j3+H5oOrD3yWbIztugaAzgnBKJuBLpGfQrS8wO4FZgV+c1IxaLgWVU0tMLEETCos4xMzEIv9cJXQcyagIwigDGwJgOAtHAwAhisQUjy0ORGERiELgG4iakkzo4MYAxcM5hAMi1WWG1yYCJIcMUaBkVRLdGeSU2995TLWzcUAzONJ7J6FBVBYIggMzmFbvdBV44Corg8vjhzC+EJEl8U1kJtgYrhCzgc/vvTwXKSib1paRFVRVORDAJAsw5FuTaJEhWM2SHB3mOAlhkNxwuLzeJsGwqWzf5TFNdKgtY5qHp6ZFf67Y/sAVadCaVY5YACDDb3Oi4NIjLnWMw2QthCBIsVhsUTU9tvXsjeq9+X1d75/KEs4LNOfcdf/+HthMnvwxOD0wmHaXr7ZItn2wuH2SnBzbZAbPJwpPx+VQuzcm7dgRCB57a1uBzUDRL4bfnI0RE0eaXd9W89mpjqHZnUI5Hh2l2dkZZUhOqpi2qSmpOmZ64Tuu9qlz/SEXo6MEHa3wOip46F1n7633eekV8ds8Wxjn37Wl63VVa+ej5oeEZ/82ZBETJjpJ1Rbij2D3Z/1trXUvLsblCK0XfOx0SX2kMsn9dX+d+7Kf6h8o4AIykuffjT8L20LU+w4AZd5VvEPY+XpWqLV327HR7DzXuDnD8r+ovkBehJ8i+y8YAAAAASUVORK5CYII=);
+        }
+
+        .notifyjs-bootstrap-warn {
+            color: #C09853;
+            background-color: #FCF8E3;
+            border-color: #FBEED5;
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAMAAAC6V+0/AAABJlBMVEXr6eb/2oD/wi7/xjr/0mP/ykf/tQD/vBj/3o7/uQ//vyL/twebhgD/4pzX1K3z8e349vK6tHCilCWbiQymn0jGworr6dXQza3HxcKkn1vWvV/5uRfk4dXZ1bD18+/52YebiAmyr5S9mhCzrWq5t6ufjRH54aLs0oS+qD751XqPhAybhwXsujG3sm+Zk0PTwG6Shg+PhhObhwOPgQL4zV2nlyrf27uLfgCPhRHu7OmLgAafkyiWkD3l49ibiAfTs0C+lgCniwD4sgDJxqOilzDWowWFfAH08uebig6qpFHBvH/aw26FfQTQzsvy8OyEfz20r3jAvaKbhgG9q0nc2LbZxXanoUu/u5WSggCtp1anpJKdmFz/zlX/1nGJiYmuq5Dx7+sAAADoPUZSAAAAAXRSTlMAQObYZgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQfdBgUBGhh4aah5AAAAlklEQVQY02NgoBIIE8EUcwn1FkIXM1Tj5dDUQhPU502Mi7XXQxGz5uVIjGOJUUUW81HnYEyMi2HVcUOICQZzMMYmxrEyMylJwgUt5BljWRLjmJm4pI1hYp5SQLGYxDgmLnZOVxuooClIDKgXKMbN5ggV1ACLJcaBxNgcoiGCBiZwdWxOETBDrTyEFey0jYJ4eHjMGWgEAIpRFRCUt08qAAAAAElFTkSuQmCC);
+        }
+    </style>
+    <style type="text/css" id="core-notify">
+        .notifyjs-corner {
+            position: fixed;
+            margin: 5px;
+            z-index: 1050;
+        }
+
+            .notifyjs-corner .notifyjs-wrapper,
+            .notifyjs-corner .notifyjs-container {
+                position: relative;
+                display: block;
+                height: inherit;
+                width: inherit;
+                margin: 3px;
+            }
+
+        .notifyjs-wrapper {
+            z-index: 1;
+            position: absolute;
+            display: inline-block;
+            height: 0;
+            width: 0;
+        }
+
+        .notifyjs-container {
+            display: none;
+            z-index: 1;
+            position: absolute;
+        }
+
+        .notifyjs-hidable {
+            cursor: pointer;
+        }
+
+        [data-notify-text], [data-notify-html] {
+            position: relative;
+        }
+
+        .notifyjs-arrow {
+            position: absolute;
+            z-index: 2;
+            width: 0;
+            height: 0;
+        }
+    </style>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.gstatic.com/maps-api-v3/api/js/21/3/common.js" style=""></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.gstatic.com/maps-api-v3/api/js/21/3/util.js"></script>
+    <script type="text/javascript" charset="UTF-8" src="https://maps.gstatic.com/maps-api-v3/api/js/21/3/stats.js"></script>
+</head>
+<body class="col-xs-12 page-hack" style="">
+    <div id="partialDiv"></div>
+    <div id="inProgress" name="inProgress" style="display: none; background-color: #000; position: fixed; top: 0; width: 100%; height: 3px;"></div>
+    <input type="hidden" id="Location_LocationGetList" value="http://my.niazerooz.com/ad/location/locationgetlist/">
+    <input type="hidden" id="Sidebar_GetAdTariffs" value="http://my.niazerooz.com/ad/sidebar/getadtariffs/">
+
+
+    <div class="right-sidbar-fly sidbar-fly  show-fly">
+        <a class="bars show-768"></a>
+        <!--<a class="bars hidden-lg hidden-md hidden-sm"></a>-->
+        <div class="commands">
+            <a class="fa green" data-target="user">
+                <svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" height="40" width="40" version="1.1">
+
+                    <metadata>
+
+                        <rdf:rdf>
+
+                            <cc:work rdf:about="">
+
+                                <dc:format>image/svg+xml</dc:format>
+
+                                <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"></dc:type>
+
+                                <dc:title></dc:title>
+
+                            </cc:work>
+
+                        </rdf:rdf>
+
+                    </metadata>
+
+                    <path d="M16.865,39.631c-6.411-1.144-11.674-5.021-14.532-10.706-2.7364-5.4424-2.7364-12.282,0-17.725,3.3801-6.7227,10.223-10.941,17.747-10.941,7.5246,0,14.367,4.2184,17.747,10.941,3.5775,7.1153,2.4103,16.075-2.8593,21.949-3.1973,3.5637-7.0355,5.6759-11.801,6.4944-1.6087,0.27627-4.7198,0.27037-6.3019-0.01195zm6.5299-1.1688c6.6323-1.0946,12.358-6.102,14.508-12.689,1.1333-3.4718,1.1333-7.9508,0-11.423-2.158-6.6094-7.765-11.5-14.581-12.718-1.7482-0.31225-4.7348-0.31225-6.4829,0-7.7335,1.3814-13.807,7.4553-15.189,15.189-0.31225,1.7482-0.31225,4.7348,0,6.4829,1.2164,6.8102,6.109,12.423,12.706,14.577,2.8084,0.91675,5.8306,1.1113,9.0386,0.58183zm-6.822-1.085c-3.303-0.695-6.142-2.153-8.6598-4.449-0.5024-0.458-0.9134-0.91-0.9134-1.005,0-0.20891,2.3691-1.1348,5.3062-2.0738,1.1902-0.3805,2.3002-0.80217,2.4668-0.93704,0.50201-0.4065,0.40354-2.0367-0.24043-3.9802-0.2845-0.8586-0.51727-1.6418-0.51727-1.7404,0-0.09862-0.26315-0.7506-0.5848-1.4488-0.94089-2.0426-1.107-2.9365-0.87351-4.7007,0.17432-1.3171,0.16644-1.6767-0.07509-3.421-0.22718-1.6408-0.24168-2.0752-0.09163-2.7457,0.42153-1.8836,1.944-3.8349,3.6142-4.632,2.3653-1.1288,5.8384-1.1315,8.0675-0.00625,1.614,0.81477,3.0052,2.5781,3.4873,4.4202,0.23267,0.88904,0.2362,1.0879,0.04155,2.3384-0.22592,1.4514-0.24907,2.9108-0.07268,4.5821,0.13986,1.3252-0.16156,2.6426-0.94467,4.129-0.32111,0.6095-0.58385,1.2409-0.58385,1.4032,0,0.16225-0.27587,1.0885-0.61304,2.0583-0.45977,1.3224-0.61507,1.9945-0.62115,2.6882-0.01,1.139,0.04433,1.1869,2.035,1.7983,2.1522,0.66102,5.9727,2.0284,6.1414,2.1982,0.09768,0.09822-0.16896,0.43978-0.80384,1.0297-2.511,2.3332-5.3861,3.8093-8.7579,4.4964-1.9197,0.39121-4.9398,0.39009-6.8073-0.0025z" fill="#010101"></path>
+
+                </svg>
+                <div>
+                    خوش آمديد
+                </div>
+            </a>
+            <a class="fa" data-target="location_">
+                <svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" height="40" width="40" version="1.1">
+
+                    <metadata>
+
+                        <rdf:rdf>
+
+                            <cc:work rdf:about="">
+
+                                <dc:format>image/svg+xml</dc:format>
+
+                                <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"></dc:type>
+
+                                <dc:title></dc:title>
+
+                            </cc:work>
+
+                        </rdf:rdf>
+
+                    </metadata>
+
+                    <path d="M16.84,39.679c-6.42-1.146-11.69-5.029-14.552-10.722-2.7403-5.4502-2.7403-12.3,0-17.75,3.385-6.7323,10.237-10.957,17.772-10.957,7.5354,0,14.388,4.2245,17.773,10.957,3.5826,7.1255,2.4137,16.098-2.8634,21.98-3.2018,3.5688-7.0455,5.684-11.818,6.5037-1.611,0.27667-4.7265,0.27075-6.3109-0.01197zm6.5392-1.1705c6.6418-1.0962,12.375-6.1107,14.528-12.707,1.1349-3.4767,1.1349-7.9621,0-11.439-2.16-6.6194-7.775-11.517-14.601-12.736-1.7507-0.3127-4.7415-0.3127-6.4922,0-7.7442,1.3833-13.827,7.4659-15.21,15.21-0.3127,1.7507-0.3127,4.7415,0,6.4922,1.2182,6.82,6.1178,12.441,12.724,14.597,2.8124,0.91806,5.8389,1.1129,9.0515,0.58267zm-3.5292-5.1805c-0.49228-2.0734-2.0641-5.5748-3.4165-7.6108-0.34757-0.52324-1.2121-1.7746-1.9212-2.7809-2.0974-2.9763-2.715-4.4901-2.7196-6.6653-0.0046-2.1708,0.81756-4.1291,2.4007-5.7184,1.6405-1.6469,3.4563-2.3987,5.7934-2.3987,4.0717,0,7.3662,2.7133,8.1548,6.7161,0.5263,2.6714-0.29151,4.7531-3.9165,9.969-1.8835,2.7101-3.2304,5.6303-4.0506,8.7816l-0.13332,0.51226-0.19114-0.80498zm1.7467-13.763c1.196-0.61251,1.9027-1.7796,1.9027-3.142,0-1.4517-0.6458-2.4619-1.9759-3.0907-1.3935-0.65876-2.7056-0.40509-3.8216,0.73881-1.1955,1.2254-1.3669,2.5345-0.53335,4.0722,0.8801,1.6235,2.8187,2.2459,4.4281,1.4217z" fill="#020202"></path>
+
+                </svg>
+                استان<span>|</span>شهر
+            </a>
+            <div class="button">
+                <a class="fa" data-target="cab">
+                    <svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="40" width="40" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+                        <metadata>
+
+                            <rdf:rdf>
+
+                                <cc:work rdf:about="">
+
+                                    <dc:format>image/svg+xml</dc:format>
+
+                                    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"></dc:type>
+
+                                    <dc:title></dc:title>
+
+                                </cc:work>
+
+                            </rdf:rdf>
+
+                        </metadata>
+
+                        <path d="M16.873,39.649c-6.426-1.146-11.701-5.033-14.566-10.731-2.7427-5.455-2.7427-12.311,0-17.766,3.388-6.7379,10.246-10.966,17.788-10.966s14.4,4.2282,17.788,10.967c3.5858,7.1318,2.4159,16.112-2.866,21.999-3.2047,3.572-7.0517,5.689-11.829,6.5094-1.6124,0.27691-4.7307,0.27099-6.3165-0.01199zm6.545-1.171c6.6476-1.0971,12.386-6.1161,14.541-12.718,1.1359-3.4798,1.1359-7.9692,0-11.449-2.163-6.6261-7.783-11.528-14.615-12.748-1.752-0.3129-4.745-0.3129-6.498,0-7.7509,1.3846-13.839,7.4725-15.223,15.224-0.31298,1.7522-0.31298,4.7457,0,6.4979,1.2192,6.826,6.1232,12.452,12.735,14.61,2.8149,0.91887,5.844,1.1139,9.0595,0.58318zm-4.6111-3.2268c-0.05652-0.05654-0.10277-0.80883-0.10277-1.6718,0-1.085-0.05648-1.611-0.18311-1.705-0.10071-0.0748-0.70734-0.26203-1.3481-0.41606-1.9546-0.4699-4.6371-2.0274-4.8558-2.8195-0.0715-0.25885,0.10279-0.5838,0.78563-1.4649,0.48262-0.62275,0.979-1.1525,1.1031-1.1773,0.12406-0.02473,0.53897,0.19422,0.922,0.48659,2.3538,1.7967,5.338,2.3366,7.2283,1.3077,1.6601-0.90352,2.0746-2.6713,0.94211-4.0172-0.5072-0.60277-1.544-1.1608-4.0713-2.1914-2.6687-1.0882-3.7784-1.6966-4.8037-2.6338-1.7794-1.6263-2.3197-4.0216-1.434-6.3571,0.63209-1.6667,2.7415-3.4153,4.7216-3.9138,0.38027-0.095729,0.75695-0.25305,0.83708-0.3496,0.08012-0.096544,0.16452-0.89675,0.18754-1.7782l0.04185-1.6027,1.4283-0.041928,1.4283-0.041928,0.0021,1.5801c0.0012,0.86904,0.05068,1.6542,0.10987,1.7448,0.05919,0.090592,0.66795,0.30407,1.3528,0.4744,1.9495,0.48486,4.1017,1.6893,4.1017,2.2953,0,0.31133-1.3157,2.673-1.5363,2.7577-0.09343,0.03583-0.61502-0.22124-1.1591-0.5713-1.8431-1.1859-3.9956-1.6004-5.7196-1.1015-0.96264,0.2786-2.0664,1.3261-2.2094,2.0966-0.3399,1.8323,0.79823,2.873,4.8575,4.4419,2.4316,0.93979,3.8686,1.7225,4.7787,2.6029,3.3377,3.2287,1.3259,9.1877-3.4996,10.366-0.39188,0.09567-0.7928,0.23668-0.89094,0.31335-0.1164,0.09094-0.1928,0.70751-0.21973,1.7734l-0.04129,1.6339-1.3255,0.04176c-0.72903,0.02295-1.3718-0.0045-1.4283-0.06107z" fill="#020202"></path>
+
+                    </svg>
+                    تعرفه
+                </a>
+            </div>
+        </div>
+        <div class="under-login inelement">
+            <img src="/Content/Images/loaderview.gif" class="loader">
+        </div>
+        <div class="inner-container">
+
+            <div class="item user">
+
+                <div id="Sidebar_UserCard">
+
+
+                    <b>09362528282</b>
+                    <div class="userlinks">
+                        <a href="http://my.niazerooz.com/ad/advertisement/ad/create/">درج آگهي جديد</a>
+                        <a href="http://my.niazerooz.com/Members/ListOrders.aspx">ويرايش آگهي هاي قبلي</a>
+                        <a href="http://my.niazerooz.com/Members/RecieveMessages.aspx">پيامهاي دريافتي</a>
+                        <a href="http://my.niazerooz.com/Members/SentMessages.aspx">پيامهاي ارسالي</a>
+                        <a href="http://my.niazerooz.com/Members/ePayment.aspx">پرداخت اينترنتي</a>
+                        <a href="http://my.niazerooz.com/Members/ePaymentArchive.aspx">آرشيو پرداخت هاي قبلي</a>
+                        <a href="http://my.niazerooz.com/Members/UserInfo.aspx">مشخصات شما</a>
+
+
+                        <a href="http://my.niazerooz.com/Members/AfterLogin.aspx">راهنماي کنترل پنل </a>
+
+                        <a class="exit" href="http://my.niazerooz.com/ad/membership/login/signout/">خروج از پنل</a>
+                    </div>
+
+                    <script type="text/javascript" async="" src="http://www.google-analytics.com/ga.js"></script>
+                    <script>
+    function LoginRequest_OnSuccess() {
+        MembershipLoginModal.Show();
+        MembershipLoginModal.HideSpinner();
+    }
+
+    function LoginRequest_OnBegin() {
+        MembershipLoginModal.ShowSpinner();
+    }
+                    </script>
+
+
+                </div>
+            </div>
+            <div class="item location_">
+                <div class="state normal">
+                    <a class="back" data-parrentid="null">&lt; بازگشت</a>
+                    <span>|</span>
+                    <a class="prvinc-name"></a>
+                </div>
+                <div class="inner">
+                    <ul></ul>
+                </div>
+
+            </div>
+            <div class="item cab donot-show-child">
+                <div class="step-l">
+                    <p>جهت مشاهده و مقايسه کليه تعرفه ها،  از لينک زير استفاده نماييد:</p>
+                    <a href="http://www.niazerooz.com/Tarefe" class="btn">صفحه تعرفه ها </a>
+                </div>
+                <div class="step-l centeralaiz">
+                    <p>براي محاسبه فوري قيمت يک آگهي ويژه مي توانيد از ابزار زير استفاده کنيد :   </p>
+
+                    <select id="Panel_AdType">
+                        <option disabled="" selected="">تعداد ستاره ها</option>
+                        <option value="2">بدون ستاره</option>
+                        <option value="3">يک ستاره</option>
+                        <option value="4">دو ستاره</option>
+                        <option value="5">سه ستاره</option>
+                        <option value="6">چهار ستاره</option>
+                        <option value="7">پنج ستاره</option>
+                        <option value="8">شش ستاره</option>
+                        <option value="9">هفت ستاره</option>
+                    </select>
+                    <select id="Panel_DisplayTime">
+                        <option disabled="" selected="">زمان نمايش</option>
+                        <option value="32">يک ماهه</option>
+                        <option value="92">سه ماهه</option>
+                        <option value="182">شش ماهه</option>
+                        <option value="367">دوازده ماهه</option>
+                    </select>
+
+                    <label><input type="checkbox" id="Panel_IsIranZamin" disabled="">اگهي ايران زمين</label>
+
+                    <span class="bold_">
+                        تعرفه:
+                    </span>
+                    <input type="text" class="result" id="Panel_TariffResult" readonly=""> (ريال)
+                </div>
+                <div class="step-l">
+                    <p> جهت پرداخت وجه، از لينک <br><a href="http://my.niazerooz.com/Members/ePayment.aspx">پرداخت آنلاين </a> استفاده کنيد.</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <style>
+        .header ul.nav {
+            float: left;
+            margin-top: 48px;
+        }
+
+        .header {
+            position: realtive;
+        }
+
+            .header ul.nav li {
+                float: left;
+            }
+
+            .header .nav li > .btn {
+                border-radius: 0;
+                background: #4583eb;
+            }
+
+                .header .nav li > .btn:hover {
+                    background: #4583eb;
+                }
+
+            .header .nav li:first-child a {
+                position: static;
+                padding-bottom: 10px;
+                margin-right: 15px;
+            }
+
+            .header .nav li > a {
+                position: realtive;
+                bottom: -13px;
+                padding-bottom: 0;
+            }
+
+                .header .nav li > a:hover {
+                    background: none;
+                }
+    </style>
+
+
+
+    <div class=" header">
+        <div class="container">
+            <div class=" row">
+                <a class="logo" href="http://www.niazerooz.com/ad/"><img src="/ad/Content/Images/Logo.svg" class="img-responsive"></a>
+
+                <ul class="nav">
+                    <li><a href="http://my.niazerooz.com/ad/advertisement/ad/create/" class="btn btn-primary btn-lg">درج آگهي رايگان</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container body-content">
+        <div class="row">
+
+
+
+
+
+            <input type="text" class="tag-edit-abel">
+
+            <div class="over-box">
+                <div class="inner-box ">
+                    <img class="" src="">
+                    <span class="filed-title">درج عنوان تصوير:</span>
+                    <input class="file-detailes">
+                    <button type="button" class="btn btn-primary left save">ذخيره</button>
+                    <button type="button" class="fa-close fa left cancel"></button>
+                </div>
+            </div>
+
+            <div class="over-tag">
+                <div class="inertag">
+                    <span class="title">ويرايش</span>
+                    <input type="text">
+                    <button type="button" class="btn btn-primary right save-tag">ذخيره</button>
+                    <a class="fa fa-close cancel-tag"></a>
+                </div>
+            </div>
+
+            <input type="hidden" value="/ad/advertisement/ad/getlocationwithsublocations/" id="GetLocationWithSubLocations">
+            <input type="hidden" value="/ad/advertisement/ad/getcategorywithsubcategories/" id="GetCategoryWithSubCategories">
+            <input type="hidden" value="http://my.niazerooz.com/ad/advertisement/ad/searchincategories/" id="SearchInCategories">
+            <input type="hidden" value="http://my.niazerooz.com/ad/advertisement/ad/getcategoriesinthiscategorydepth/" id="GetCategoriesInThisCategoryDepth">
+            <input type="hidden" value="/ad/advertisement/ad/getselectedcategories/" id="GetSelectedCategories">
+            <input type="hidden" value="http://my.niazerooz.com/ad/advertisement/ad/searchinlocations/" id="SearchInLocations">
+            <input type="hidden" value="/ad/advertisement/ad/uploadimages/" id="UploadImages">
+            <input type="hidden" value="http://my.niazerooz.com/ad/advertisement/ad/getattributes/" id="GetAttributes">
+            <input type="hidden" id="IsAdmin">
+
+
+            <form id="frmAdvertisement" action="http://my.niazerooz.com/ad/advertisement/ad/create/" enctype="multipart/form-data" method="POST" onkeypress="return preventEnterSubmit(event);" novalidate="novalidate">
+
+                <input name="__RequestVerificationToken" type="hidden" value="xNjXqZ415jLiKirRTRh4zVDt-fqzxkBJ18WFumHvVApnbXEhnCl9IuQD5VZIfK-U6rA6hBcHJHdihEFff3mdizfdGdlvtNUGGLxG3iCaNw1gD8ahsApPurp_GrtbZuu8ub4eZQ2">
+                <input data-val="true" data-val-number="The field OrderId must be a number." id="OrderId" name="OrderId" type="hidden" value="0">
+                <input data-val="true" data-val-number="The field UserId must be a number." id="UserId" name="UserId" type="hidden" value="307736">
+                <input value="" id="ImagesData" name="ImagesData" type="hidden">
+                <input value="14" data-val="true" data-val-number="The field MapZoom must be a number." id="MapZoom" name="MapZoom" type="hidden">
+                <input data-val="true" data-val-number="The field MapLat must be a number." id="MapLat" name="MapLat" type="hidden" value="">
+                <input data-val="true" data-val-number="The field MapLong must be a number." id="MapLong" name="MapLong" type="hidden" value="">
+                <input id="HasMap" name="HasMap" type="hidden" value="False">
+                <input type="hidden" value="false" id="MapIsLoaded">
+                <div class="container">
+                    <div class="row">
+                        <h5 id="topText"> تکميل موارد ستاره دار الزامي است ولي تکميل موارد بيشتر، بازديد کنندگان آگهي شما را افزايش مي دهد.</h5>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-10 col-xs-12">
+
+                        </div>
+
+                    </div>
+                    <div class="row grp-row1">
+                        <div class="col-md-2">
+                            <label class="label_wells">گروه آگهي:<span class="star">*</span></label>
+                        </div>
+                        <div class="col-md-10 col-xs-12 group-widget ">
+                            <div class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="GroupSelector" data-catid="" data-recentpatren="">
+                                <span id="group_memory"></span><span class=" caret" id="car"></span>
+                            </div>
+                            <div class="element-container col-md-12">
+
+                                <button type="button" class="close fa fa-remove"></button>
+                                <input id="GroupSelectBox" type="text" class="form-control ui-autocomplete-input" placeholder=" گروه مورد نظر خود را در پايين انتخاب ، يا در اينجا جستجو کنيد " autocomplete="off">
+                                <i class="fa fa-search"></i>
+                                <div class="links-container">
+
+                                </div>
+                            </div>
+                            <img src="/ad/Content/Images/loaderview.gif" class="loader">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-10">
+                            <input data-msg-min="گروه آگهي را انتخاب نماييد" data-msg-required="گروه آگهي را انتخاب نماييد" data-rule-min="1" data-rule-required="true" data-val="true" data-val-number="The field CategoryId must be a number." id="CategoryId" name="CategoryId" type="hidden" value="0" aria-required="true">
+                            <span class="field-validation-valid" data-valmsg-for="CategoryId" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+
+
+                    <div class="row grp-row1 margin-top">
+                        <div class="col-md-2">
+                            <label class="label_wells">موقعيت آگهي:<span class="star">*</span></label>
+
+                        </div>
+                        <div class="col-md-10 col-xs-12  location-widget ">
+                            <div class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="locationSelector" data-catid="" data-recentpatren="">
+                                <span id="Location_memory" data-country="ايران" data-province="" data-city=""></span><span class=" caret"></span>
+                            </div>
+                            <div class="element-container col-md-12">
+
+                                <button type="button" class="close fa fa-remove"></button>
+                                <input type="text" id="LocationSelectBox" class="form-control ui-autocomplete-input" placeholder=" شهر مورد نظر خود را در پايين انتخاب ، يا در اينجا جستجو کنيد" autocomplete="off">
+                                <i class="fa fa-search"></i>
+                                <div class="links-container">
+
+                                </div>
+                            </div>
+                            <img src="/ad/Content/Images/loaderview.gif" class="loader">
+
+
+                        </div>
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-10">
+                            <input value="" data-msg-required="موقعيت آگهي را انتخاب نماييد" data-rule-required="true" data-val="true" data-val-number="The field LocationId must be a number." id="LocationId" name="LocationId" type="hidden" aria-required="true">
+                            <span class="field-validation-valid" data-valmsg-for="LocationId" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+
+
+                    <div class="row grp-row1">
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-10 col-xs-12">
+                            <label class="map-Show fa fa-map-marker ">
+                                <input id="HasMap" name="HasMap" type="checkbox" value="true"><input name="HasMap" type="hidden" value="false">
+                                <span>مي خواهم محل آگهي بر روي نقشه نيز نمايش داده شود</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row advertiseRow  map-component  ">
+                        <div class="col-md-2 right_">
+                            <a class="fa fa-crosshairs my-location" href="javascript:AdvMap.ShowMyLocation()">موقعيت من روي نقشه </a>
+                            <div>
+                                <p>
+                                    با زدن دکمه بالا، مکان تقريبي شما روي نقشه مشخص مي شود، سپس:
+                                    <span>پونز قرمز را در محل دقيق قرار دهيد.</span>
+                                </p>
+
+                            </div>
+                        </div>
+                        <div class="col-md-10 col-xs-12 left_">
+                            <span class="selected-location"> :</span>
+                            <input type="text" id="searchMapLocation" class="serach-text form-control input-xs subject" placeholder=" جستجوي خيابان يا محله " style="padding-right: 20px;">
+                            <!-- placeholder="جستجو در نقشه (حتما نام شهر خود را بنويسيد. مثل: تهران ميدان فاطمي) "  -->
+                            <a class="search" onclick="AdvMap.SearchLocationByName()">جستجو</a>
+                            <div id="map_canvas" class="map"></div>
+                            <div class="hint">
+                                <a class="fa fa-crosshairs my-location">موقعيت من روي نقشه </a>
+                                <p>
+                                    با زدن دکمه بالا، مکان تقريبي شما روي نقشه مشخص مي شود، سپس:
+                                    <span>پونز قرمز را در محل دقيق قرار دهيد.</span>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row advertiseRow">
+                        <div class="col-md-2">
+                            <label class="label_texts">عنوان آگهي:<span class="star">*</span></label>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <input value="" class="form-control input-xs subject" data-msg-rangelength="عنوان آگهي بايد حداقل 3 حرف و حداکثر 50 حرف باشد" data-msg-required="عنوان آگهي را وارد نماييد" data-rule-rangelength="3,50" data-rule-required="true" id="Subject" maxlength="50" name="Subject" type="text" aria-required="true">
+                            <span class="field-validation-valid" data-valmsg-for="Subject" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+
+                    <div class="row advertiseRow">
+                        <div class="col-md-2">
+                            <label class="label_texts">شرح آگهي:<span class="star">*</span></label>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <textarea class="form-control" cols="20" data-msg-rangelength="عنوان آگهي بايد حداقل 20 حرف و حداکثر 8000 حرف باشد" data-msg-required="شرح آگهي را وارد نماييد" data-rule-rangelength="20,8000" data-rule-required="true" id="Description" maxlength="8000" name="Description" rows="10" aria-required="true"></textarea>
+                            <span class="field-validation-valid" data-valmsg-for="Description" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+
+                    <div class="row advertiseRow ">
+                        <div class="col-md-2">
+                            <label class="label_texts">قيمت:</label>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <input class="form-control" data-msg-maxlength="قيمت بايد حداکثر 50 حرف باشد" data-rule-maxlength="50" id="Price" maxlength="50" name="Price" type="text" value="">
+                            <span class="field-validation-valid" data-valmsg-for="Price" data-valmsg-replace="true"></span>
+
+                        </div>
+                    </div>
+
+                    <div class="row advertiseRow">
+                        <div class=" col-md-2">
+                            <label class="label_texts">عبارات کليدي:</label>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <div class="row inputTags">
+                                <div class="col-md-11  col-xs-11" id="moreInfotxt">
+                                    <input class="form-control" id="keywords" name="Keywords" type="text" value="" style="display: none;"><div class="bootstrap-tagsinput"><input type="text" placeholder="" style="width: auto !important;"></div>
+                                    <span class="field-validation-valid" data-valmsg-for="Keywords" data-valmsg-replace="true"></span>
+                                    <span class="help-block col-md-12 no-padding">براي درج عبارت بعدي دکمه Enter را بزنيد يا بر روي + کليک کنيد</span>
+                                </div>
+
+                                <div class="col-md-1 col-xs-1" id="plus">
+                                    <span class="fa fa-plus" onclick=" addKeyword() "></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row advertiseRow ">
+                        <div class="col-md-2">
+                            <label class="label_texts">لينک آگهي:</label>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+
+                            <input class="form-control" id="Link" name="Link" style="direction:ltr;" type="text" value="">
+                            <span class="field-validation-valid" data-valmsg-for="Link" data-valmsg-replace="true"></span>
+
+                        </div>
+                    </div>
+
+                    <div class="row advertiseRow ">
+                        <div class="col-md-2">
+                            <label class="label_texts">آدرس:</label>
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <input class="form-control" data-msg-maxlength="آدرس بايد حداکثر 130 حرف باشد" data-rule-maxlength="130" id="Address" maxlength="130" name="Address" type="text" value="">
+                            <span class="field-validation-valid" data-valmsg-for="Address" data-valmsg-replace="true"></span>
+
+                        </div>
+                    </div>
+
+
+                    <div class="row advertiseRow">
+
+                        <div class="col-md-2">
+                            <label class="label_texts">نام آگهي دهنده:<span class="star">*</span></label>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12">
+                            <input class="form-control input-xs owner" data-msg-maxlength="نام آگهي دهنده بايد حداکثر 50 حرف باشد" data-msg-required="نام آگهي دهنده را وارد نماييد" data-rule-maxlength="50" data-rule-required="true" id="Owner" maxlength="50" name="Owner" type="text" value="ali" aria-required="true">
+                            <span class="field-validation-valid" data-valmsg-for="Owner" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+
+                    <div class="row advertiseRow">
+
+                        <div class="col-md-2">
+                            <label class="label_texts">ايميل:</label>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12">
+                            <input class="form-control input-xs email text-left" data-msg-email="ايميل صحيح نمي باشد" data-rule-email="true" id="Email" name="Email" type="text" value="">
+                            <span class="field-validation-valid" data-valmsg-for="Email" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+
+                    <div class="row advertiseRow">
+
+                        <div class="col-md-2">
+                            <label class="label_texts">تلفن:</label>
+                        </div>
+
+                        <div class="col-md-6 col-xs-12">
+                            <div class="row inputTags">
+                                <div class="col-md-11  col-xs-11" id="moreInfotxt">
+                                    <input class="form-control" id="phones" name="Phones" type="text" value="" style="display: none;"><div class="bootstrap-tagsinput"><input type="text" placeholder="" style="width:100px"></div>
+                                    <span class="field-validation-valid" data-valmsg-for="Phones" data-valmsg-replace="true"></span>
+                                    <span class="help-block col-md-12 no-padding">براي درج شماره بعدي دکمه Enter  را بزنيد يا بر روي + کليک کنيد</span>
+
+                                </div>
+                                <div class="col-md-1  col-xs-1" id="plus">
+
+                                    <span class="fa fa-plus" onclick=" addPhone() "></span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row advertiseRow">
+                        <div class="col-md-2">
+                            <label class="label_texts">تصاوير آگهي :</label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12" id="imageInfo">
+                                    <h5>درج تصوير مناسب بازديد از آگهي را تا 10 برابر افزايش مي دهد.</h5>
+                                    <h5> لطفا براي هر تصوير يک عنوان جداگانه درج نماييد.</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-2">
+                        </div>
+
+                        <div class="dropzone dz-clickable">
+                            <img class="upload-pointer" src="/ad/Areas/Membership/Content/Images/insert-pic.jpg">
+
+                            <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="row advertiseRow">
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="checkbox Display">
+                                        <label>
+
+                                            <input checked="checked" id="DisplayOutBox" name="DisplayOutBox" type="checkbox" value="true"><input name="DisplayOutBox" type="hidden" value="false">
+                                            نمايش صندوق ارسال پيام در صفحه نمايش آگهي
+                                        </label>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row advertiseRow">
+
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-6 no-padding-left">
+                            <h5 id="SendInfo">کليک بر روي دکمه ارسال آگهي بدين معنا است که از <a href="http://my.niazerooz.com/Help#Rules" target="_blank">قوانين درج آگهي</a> اطلاع داريد.</h5>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class=" col-md-2">
+                        </div>
+                        <div class="col-md-6">
+                            <p>
+
+                                <button type="submit" id="btnSaveAdv" class="btn btn-primary btn-lg" style="margin-bottom: 50px; background-color: #3F80E6">ارسال آگهي</button>
+
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container footer no-padding ">
+        <div class="row clear-margin-left-right">
+            <div class="col-md-12 col-centered fotter_border col-xs-12">
+                <ul class="col-md-6 col-sm-12 col-xs-12 ">
+                    <li class="col-md-6 col-sm-4 col-xs-12"><a href="http://my.niazerooz.com/ad/advertisement/ad/create/">درج آگهي رايگان </a></li>
+                    <li class="col-md-6 col-sm-4 col-xs-12"><a href="http://www.niazerooz.com/Help" target="_blank">راهنماي سايت</a></li>
+                    <li class="col-md-6 col-sm-4 col-xs-12"><a href="http://my.niazerooz.com/Help#Rules" target="_blank">قوانين درج آگهي</a></li>
+                    <li class="col-md-6 col-sm-4 col-xs-12"><a href="http://my.niazerooz.com/FreeSiteDesigning" target="_blank">ساخت سايت رايگان</a></li>
+                    <li class="col-md-6 col-sm-4 col-xs-12"><a href="http://www.niazerooz.com/Tarefe" target="_blank">تعرفه</a></li>
+                    <li class="col-md-6 col-sm-4 col-xs-12"><a href="http://www.niazerooz.com/Privacy-Policy" target="_blank">حفظ حريم شخصي</a></li>
+                </ul>
+                <span class="sm-font col-md-5  col-sm-10 col-xs-12  blockqute_ no-padding-left">
+                    مسئوليت آگهي ها بر عهده آگهي دهنده گان مي باشد.<br>
+                    حقوق مادي و معنوي اين سايت متعلق به مجموعه <span>نياز روز</span>  است.<br>
+                    فعاليت‌هاي اين سايت تابع قوانين و مقررات جمهوري اسلامي ايران است.
+                    <br>
+                    ???????? (???)
+                </span>
+                <div class="col-md-1 col-sm-2 col-xs-12  no-padding">
+                    <iframe class="enamad" src="http://www.niazerooz.com/eNamadLogo.htm" frameborder="0" scrolling="no" allowtransparency="true" style="width: 150px; height: 150px;"></iframe>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="under-login">
+        <img src="/ad/Content/Images/loaderview.gif" class="loader">
+    </div>
+
+    <script src="/ad/bundles/global?v=YfJJsa8P0-75-y_oNrC0MVNiccjanZid5idZfZmDnZY1"></script>
+
+
+    <script src="/ad/bundles/scripts-advertisement?v=_eG9PBeqjtSJnDeeTTC8AnlJvnmafCu-3Hajd2--evk1"></script>
+
+
+
+
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD55VAL4p2y2-cUyUavZlCTDoQwo3U0B9o" type="text/javascript"></script>
+    <script src="https://maps.gstatic.com/maps-api-v3/api/js/21/3/main.js"></script>
+
+
+    <script src="/ad/Scripts/7A-0C-30-C5-A7-92-EB-B9-FF-51-3D-E2-E4-D4-02-EE?v=FpYv7uAqWn9Yf9dQ_HHEZ1f0HakeCf4xXv5j8csBjuc1"></script><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-1" tabindex="0" style="display: none;"></ul><span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span><ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content" id="ui-id-2" tabindex="0" style="display: none;"></ul><span role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></span>
+
+
+
+    <script type="text/javascript">
+            $(document).ready(function() {
+                MembershipLoginModal.Initial();
+            });
+    </script>
+    <script type="text/javascript">
+ var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-10296092-6']); _gaq.push(['_trackPageview']); (function () { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();
+    </script>
+
+
+    <input type="file" multiple="multiple" class="dz-hidden-input" accept="image/*" 
+           style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
+    <div class="monthPicker FNbindundefined569 ltr" style="display: none;"><div class="title">
+        <span class="back fa fa-chevron-right"></span><a class="year_command fa fa-columns"></a>
+        <input type="text" value="2015"><span class="next fa fa-chevron-left"></span>
+        </div><div class="years" style="display: none;"><div class="inner"></div></div>
+    <div class="monthes" style="display: none;"><a class="month " data-month="1">January</a>
+        <a class="month " data-month="2">February</a><a class="month " data-month="3">March</a>
+        <a class="month " data-month="4">April</a><a class="month " data-month="5">May</a>
+        <a class="month  active " data-month="6">June</a><a class="month " data-month="7">July</a>
+        <a class="month " data-month="8">August</a><a class="month " data-month="9">September</a>
+        <a class="month " data-month="10">October</a><a class="month " data-month="11">November</a>
+        <a class="month " data-month="12">December</a></div><div class="clear-fix"></div>
+    </div>
+</body>
+</html>

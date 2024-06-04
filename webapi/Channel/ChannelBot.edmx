@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ChannelBotModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Channel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Link" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Member" Type="int" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="GroupId" Type="int" />
+          <Property Name="StateAdd" Type="tinyint" Nullable="false" />
+          <Property Name="ShowOrder" Type="tinyint" Nullable="false" />
+          <Property Name="ChatIdAdder" Type="int" />
+          <Property Name="DateTimeAdd" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" />
+          <Property Name="ParentId" Type="int" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ChatId" />
+          </Key>
+          <Property Name="ChatId" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="User_Channel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ChatId" Type="int" Nullable="false" />
+          <Property Name="ChannelId" Type="int" Nullable="false" />
+          <Property Name="Star" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Channel_Group">
+          <End Role="Group" Type="Self.Group" Multiplicity="0..1" />
+          <End Role="Channel" Type="Self.Channel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Channel">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Channel_Channel">
+          <End Role="Channel" Type="Self.Channel" Multiplicity="1" />
+          <End Role="User_Channel" Type="Self.User_Channel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Channel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User_Channel">
+              <PropertyRef Name="ChannelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Channel_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="User_Channel" Type="Self.User_Channel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ChatId" />
+            </Principal>
+            <Dependent Role="User_Channel">
+              <PropertyRef Name="ChatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ChannelBotModelStoreContainer">
+          <EntitySet Name="Channel" EntityType="Self.Channel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User_Channel" EntityType="Self.User_Channel" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Channel_Group" Association="Self.FK_Channel_Group">
+            <End Role="Group" EntitySet="Group" />
+            <End Role="Channel" EntitySet="Channel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Channel_Channel" Association="Self.FK_User_Channel_Channel">
+            <End Role="Channel" EntitySet="Channel" />
+            <End Role="User_Channel" EntitySet="User_Channel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Channel_User" Association="Self.FK_User_Channel_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="User_Channel" EntitySet="User_Channel" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ChannelBotModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ChannelBotEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Channels" EntityType="ChannelBotModel.Channel" />
+          <EntitySet Name="Groups" EntityType="ChannelBotModel.Group" />
+          <EntitySet Name="Users" EntityType="ChannelBotModel.User" />
+          <EntitySet Name="User_Channel" EntityType="ChannelBotModel.User_Channel" />
+          <AssociationSet Name="FK_Channel_Group" Association="ChannelBotModel.FK_Channel_Group">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="Channel" EntitySet="Channels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Channel_Channel" Association="ChannelBotModel.FK_User_Channel_Channel">
+            <End Role="Channel" EntitySet="Channels" />
+            <End Role="User_Channel" EntitySet="User_Channel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Channel_User" Association="ChannelBotModel.FK_User_Channel_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="User_Channel" EntitySet="User_Channel" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Channel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Link" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Member" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="GroupId" Type="Int32" />
+          <Property Name="StateAdd" Type="Byte" Nullable="false" />
+          <Property Name="ShowOrder" Type="Byte" Nullable="false" />
+          <Property Name="ChatIdAdder" Type="Int32" />
+          <Property Name="DateTimeAdd" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Group" Relationship="ChannelBotModel.FK_Channel_Group" FromRole="Channel" ToRole="Group" />
+          <NavigationProperty Name="User_Channel" Relationship="ChannelBotModel.FK_User_Channel_Channel" FromRole="Channel" ToRole="User_Channel" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ParentId" Type="Int32" />
+          <NavigationProperty Name="Channels" Relationship="ChannelBotModel.FK_Channel_Group" FromRole="Group" ToRole="Channel" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ChatId" />
+          </Key>
+          <Property Name="ChatId" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User_Channel" Relationship="ChannelBotModel.FK_User_Channel_User" FromRole="User" ToRole="User_Channel" />
+        </EntityType>
+        <EntityType Name="User_Channel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ChatId" Type="Int32" Nullable="false" />
+          <Property Name="ChannelId" Type="Int32" Nullable="false" />
+          <Property Name="Star" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Channel" Relationship="ChannelBotModel.FK_User_Channel_Channel" FromRole="User_Channel" ToRole="Channel" />
+          <NavigationProperty Name="User" Relationship="ChannelBotModel.FK_User_Channel_User" FromRole="User_Channel" ToRole="User" />
+        </EntityType>
+        <Association Name="FK_Channel_Group">
+          <End Type="ChannelBotModel.Group" Role="Group" Multiplicity="0..1" />
+          <End Type="ChannelBotModel.Channel" Role="Channel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Channel">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Channel_Channel">
+          <End Type="ChannelBotModel.Channel" Role="Channel" Multiplicity="1" />
+          <End Type="ChannelBotModel.User_Channel" Role="User_Channel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Channel">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="User_Channel">
+              <PropertyRef Name="ChannelId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_Channel_User">
+          <End Type="ChannelBotModel.User" Role="User" Multiplicity="1" />
+          <End Type="ChannelBotModel.User_Channel" Role="User_Channel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ChatId" />
+            </Principal>
+            <Dependent Role="User_Channel">
+              <PropertyRef Name="ChatId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ChannelBotModelStoreContainer" CdmEntityContainer="ChannelBotEntities">
+          <EntitySetMapping Name="Channels">
+            <EntityTypeMapping TypeName="ChannelBotModel.Channel">
+              <MappingFragment StoreEntitySet="Channel">
+                <ScalarProperty Name="DateTimeAdd" ColumnName="DateTimeAdd" />
+                <ScalarProperty Name="ChatIdAdder" ColumnName="ChatIdAdder" />
+                <ScalarProperty Name="ShowOrder" ColumnName="ShowOrder" />
+                <ScalarProperty Name="StateAdd" ColumnName="StateAdd" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Member" ColumnName="Member" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="ChannelBotModel.Group">
+              <MappingFragment StoreEntitySet="Group">
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ChannelBotModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ChatId" ColumnName="ChatId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User_Channel">
+            <EntityTypeMapping TypeName="ChannelBotModel.User_Channel">
+              <MappingFragment StoreEntitySet="User_Channel">
+                <ScalarProperty Name="Star" ColumnName="Star" />
+                <ScalarProperty Name="ChannelId" ColumnName="ChannelId" />
+                <ScalarProperty Name="ChatId" ColumnName="ChatId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
