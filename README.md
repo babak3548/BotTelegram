@@ -36,7 +36,7 @@ This is a post-sharing bot for Telegram, where users can post content that is th
 
    Copy code
 
-   git clone <https://github.com/babak3548/BotTelegram.git>
+   git clone https://github.com/babak3548/BotTelegram.git
 
    ```
 
